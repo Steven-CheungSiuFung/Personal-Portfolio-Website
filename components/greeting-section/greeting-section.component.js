@@ -11,7 +11,7 @@ const GreetingSection = () => {
   return (
     <GreetingSectionContainer>
       <Spacer position={"right"} size={"25rem"}>
-        <GreetingWordContainer>
+        <GreetingWordContainer className="greeting">
           <MyText size={"3rem"} weight={"500"}>
             Hellooo!!
           </MyText>

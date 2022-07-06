@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Tilt from "react-tilt";
 
 export const SkillCardContainer = styled.div`
   width: 100%;
@@ -16,4 +17,9 @@ export const SkillCardImageContainer = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
+`;
+
+export const TiltContainer = styled(Tilt)`
+  height: 250px;
+  width: 250px;
 `;
