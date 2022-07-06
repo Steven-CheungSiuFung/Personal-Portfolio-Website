@@ -1,8 +1,11 @@
+import GreetingSection from "../components/greeting-section/greeting-section.component";
+import SkillsSection from "../components/skills-section/skills-section.component";
+
 const HomePage = () => {
   return (
     <div>
-      <div>Greeting</div>
-      <div>Skills</div>
+      <GreetingSection />
+      <SkillsSection />
       <div>Projects</div>
       <div>About me</div>
     </div>
