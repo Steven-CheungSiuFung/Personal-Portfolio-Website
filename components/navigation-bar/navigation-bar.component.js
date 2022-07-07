@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   NavigationBarContainer,
   HomeLogoContainer,
+  HomeLogoLink,
   NavLinkList,
   NavLinkItem,
 } from "./navigation-bar.styles";

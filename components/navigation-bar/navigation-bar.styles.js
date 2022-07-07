@@ -15,6 +15,9 @@ export const HomeLogoContainer = styled.div`
   align-items: baseline;
   font-size: 1.6rem;
   font-weight: 500;
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
 `;
 
 export const NavLinkList = styled.ul`

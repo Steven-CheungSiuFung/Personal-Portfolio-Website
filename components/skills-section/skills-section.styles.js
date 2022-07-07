@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const SkillsSectionContainer = styled.div`
   width: 100%;
-  padding: 4rem 15rem;
-  box-shadow: 0px -5px 10px -10px grey;
+  padding: 4rem 17%;
+  box-shadow: 0px -5px 10px -10px gray;
 `;
 
 export const SkillsSectionTitle = styled.div`
@@ -15,7 +15,7 @@ export const SkillsSectionTitle = styled.div`
 
 export const SkillsListContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 30px;
   row-gap: 50px;
   grid-auto-rows: 200px;

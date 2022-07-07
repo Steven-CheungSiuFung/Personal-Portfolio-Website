@@ -19,6 +19,7 @@ const SkillsSection = () => {
     "express.js",
     "mongoDB",
   ];
+
   return (
     <SkillsSectionContainer>
       <SkillsSectionTitle>
