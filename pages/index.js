@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";
 
 import GreetingSection from "../components/greeting-section/greeting-section.component";
@@ -19,13 +19,13 @@ const HomePage = () => {
     });
   }, []);
   return (
-    <div>
+    <Fragment>
       <GreetingSection />
       <SkillsSection />
       <ProjectsSection />
       <AboutMeSection />
       <BackgroundAnimate />
-    </div>
+    </Fragment>
   );
 };
 

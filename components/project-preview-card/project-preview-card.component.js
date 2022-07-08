@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import MyText from "../utils/my-text/my-text.component";
 import Spacer from "../utils/spacer/spacer.component";
 import {
@@ -11,7 +12,9 @@ import {
 } from "./project-preview-card.styles";
 
 const ProjectPreviewCard = ({ project, index }) => {
+  const [isMediumWidth, setIsMediumWidth] = useState(false);
   const isOdd = index % 2;
+  const windowWidthRef = useRef();
 
   const getyDirection = (isOdd) => {
     const xDirection = isOdd ? "-" : "";
@@ -23,6 +26,20 @@ const ProjectPreviewCard = ({ project, index }) => {
     return xDirection;
   };
 
+  const updateDimensions = () => {
+    windowWidthRef.current = window.innerWidth;
+    if (windowWidthRef.current < 760) {
+      setIsMediumWidth(true);
+    } else if (windowWidthRef.current > 760) {
+      setIsMediumWidth(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
   return (
     <TiltContainer className="Tilt" options={{ max: 25 }}>
       <div className="Tilt-inner">
@@ -30,7 +47,7 @@ const ProjectPreviewCard = ({ project, index }) => {
           xDirection={getXDirection(isOdd)}
           yDirection={getyDirection(isOdd)}
         >
-          {!isOdd && (
+          {(!isOdd || isMediumWidth) && (
             <ProjectPreviewCardImageWrapper>
               <ProjectPreviewCardImageContainer>
                 <Image
@@ -59,7 +76,7 @@ const ProjectPreviewCard = ({ project, index }) => {
               ))}
             </ContentTechWrapper>
           </ProjectPreviewCardContent>
-          {isOdd ? (
+          {isOdd && !isMediumWidth ? (
             <ProjectPreviewCardImageWrapper>
               <ProjectPreviewCardImageContainer>
                 <Image

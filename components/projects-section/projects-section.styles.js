@@ -8,4 +8,10 @@ export const ProjectsSectionContainer = styled.section`
   align-items: center;
   padding: 4rem 15%;
   box-shadow: 0px -5px 10px -10px gray;
+
+  @media screen and (max-width: 900px) {
+    & {
+      padding: 4rem 5%;
+    }
+  }
 `;

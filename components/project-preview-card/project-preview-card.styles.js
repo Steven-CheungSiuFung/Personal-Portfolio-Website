@@ -13,6 +13,18 @@ export const ProjectPreviewCardContainer = styled.div`
   box-shadow: ${(props) => props.xDirection}3px 1px 10px -5px gray;
   transform: perspective(1000px) rotateX(0deg)
     rotateY(${(props) => props.yDirection}4.5deg) scale3d(1, 1, 1);
+
+  @media screen and (max-width: 760px) {
+    & {
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 430px) {
+    & {
+      position: relative;
+      right: 20px;
+    }
+  }
 `;
 
 export const ProjectPreviewCardImageWrapper = styled.div`
@@ -39,6 +51,15 @@ export const ProjectPreviewCardContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem 2rem;
+
+  @media screen and (max-width: 760px) {
+    & {
+      padding: 4rem 4rem;
+      align-items: center;
+      flex: auto;
+      text-align: center;
+    }
+  }
 `;
 
 export const ContentTechWrapper = styled.div`

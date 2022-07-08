@@ -24,24 +24,22 @@ const GreetingSection = () => {
   }, []);
   return (
     <GreetingSectionContainer>
-      <Spacer position={"right"} size={"25rem"}>
-        <GreetingWordContainer className="greeting-fade-in greeting">
-          <MyText size={"3rem"} weight={"500"}>
-            👋 Hellooo!!
-          </MyText>
-        </GreetingWordContainer>
-      </Spacer>
+      <GreetingWordContainer className="greeting-fade-in greeting">
+        <MyText size={"3rem"} weight={"500"}>
+          👋 Hellooo!!
+        </MyText>
+      </GreetingWordContainer>
+
       <Spacer position={"top"} size={"0.5rem"} />
-      <Spacer position={"left"} size={"5rem"}>
-        <IntroductionContainer className="greeting-fade-in">
-          <MyText size={"3rem"} weight={"500"}>
-            I{"'"}m Steven Cheung
-          </MyText>
-          <MyText size={"1.5rem"} weight={"500"} color={"gray"}>
-            A Full Stack Web Developer
-          </MyText>
-        </IntroductionContainer>
-      </Spacer>
+
+      <IntroductionContainer className="greeting-fade-in">
+        <MyText size={"3rem"} weight={"500"}>
+          I{"'"}m Steven Cheung
+        </MyText>
+        <MyText size={"1.5rem"} weight={"500"} color={"gray"}>
+          A Full Stack Web Developer
+        </MyText>
+      </IntroductionContainer>
     </GreetingSectionContainer>
   );
 };
