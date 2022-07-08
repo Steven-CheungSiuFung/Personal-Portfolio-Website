@@ -29,7 +29,7 @@ export const ProjectPreviewCardImageContainer = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  background-color: grey;
+  background-color: gray;
 `;
 
 export const ProjectPreviewCardContent = styled.div`

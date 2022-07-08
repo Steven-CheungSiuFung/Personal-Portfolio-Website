@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavigationBarContainer = styled.div`
+export const NavigationBarContainer = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-around;

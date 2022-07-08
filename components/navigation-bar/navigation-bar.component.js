@@ -1,9 +1,9 @@
 import Link from "next/link";
+import MyText from "../utils/my-text/my-text.component";
 
 import {
   NavigationBarContainer,
   HomeLogoContainer,
-  HomeLogoLink,
   NavLinkList,
   NavLinkItem,
 } from "./navigation-bar.styles";
@@ -13,16 +13,22 @@ const NavigationBar = () => {
   return (
     <NavigationBarContainer>
       <HomeLogoContainer>
-        <Link href="/">Home</Link>
+        <MyText>
+          <Link href="/">Home</Link>
+        </MyText>
       </HomeLogoContainer>
       <Spacer position={"right"} size={"0"}></Spacer>
 
       <NavLinkList>
         <NavLinkItem>
-          <Link href="/projects">Projects</Link>
+          <MyText>
+            <Link href="/projects">Projects</Link>
+          </MyText>
         </NavLinkItem>
         <NavLinkItem>
-          <Link href="/three-d">3D-mode</Link>
+          <MyText>
+            <Link href="/three-d">3D-mode</Link>
+          </MyText>
         </NavLinkItem>
       </NavLinkList>
     </NavigationBarContainer>

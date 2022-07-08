@@ -10,14 +10,14 @@ import {
 
 const SkillsSection = () => {
   const skills = [
-    "HTML",
-    "CSS",
-    "javascript",
-    "react.js",
-    "next.js",
-    "node.js",
-    "express.js",
-    "mongoDB",
+    { title: "HTML", description: "HTML 5" },
+    { title: "CSS", description: "CSS 3" },
+    { title: "javascript", description: "ES12" },
+    { title: "react.js", description: "Front-end Library" },
+    { title: "next.js", description: "Full-stack Framework" },
+    { title: "node.js", description: "Back-end Runtime" },
+    { title: "express.js", description: "Sever Framework" },
+    { title: "mongoDB", description: "Database" },
   ];
 
   return (
