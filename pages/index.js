@@ -6,6 +6,7 @@ import SkillsSection from "../components/skills-section/skills-section.component
 import ProjectsSection from "../components/projects-section/projects-section.component";
 import AboutMeSection from "../components/about-me-section/about-me-section.component";
 import BackgroundAnimate from "../components/background-animate/background-animate.component";
+import FooterSection from "../components/footer-section/footer-section.component";
 
 const HomePage = () => {
   useEffect(() => {
@@ -24,7 +25,7 @@ const HomePage = () => {
       <SkillsSection />
       <ProjectsSection />
       <AboutMeSection />
-      <div>Footer</div>
+      <FooterSection />
       <BackgroundAnimate />
     </Fragment>
   );

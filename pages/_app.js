@@ -1,9 +1,14 @@
+import Head from "next/head";
 import Layout from "../components/Layout/layout.component";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
+      <Head>
+        <title>Steven Station</title>
+        <link rel="shortcut icon" href="/logo.png" />
+      </Head>
       <Component {...pageProps} />
     </Layout>
   );

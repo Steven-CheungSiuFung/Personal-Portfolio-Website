@@ -6,7 +6,7 @@ export const GreetingSectionContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15rem 0;
+  padding: 14rem 0;
 
   @media screen and (max-width: 450px) {
     & {
@@ -17,19 +17,19 @@ export const GreetingSectionContainer = styled.section`
 
   @keyframes greeting {
     20% {
-      transform: rotate3d(0, 0, 1, 15deg) scale(1.1, 1.1);
+      transform: rotate3d(0, 0, 1, 15deg) scale(1, 1);
     }
 
     40% {
-      transform: rotate3d(0, 0, 1, -10deg) scale(1.1, 1.1);
+      transform: rotate3d(0, 0, 1, -10deg) scale(1, 1);
     }
 
     60% {
-      transform: rotate3d(0, 0, 1, 5deg) scale(1.1, 1.1);
+      transform: rotate3d(0, 0, 1, 5deg) scale(1, 1);
     }
 
     80% {
-      transform: rotate3d(0, 0, 1, -5deg) scale(1.1, 1.1);
+      transform: rotate3d(0, 0, 1, -5deg) scale(1, 1);
     }
 
     to {
@@ -41,7 +41,7 @@ export const GreetingSectionContainer = styled.section`
     transform-origin: top center;
     animation-name: greeting;
     animation-duration: 1s;
-    animation-delay: 0.3s;
+    animation-delay: 0.2s;
   }
 `;
 

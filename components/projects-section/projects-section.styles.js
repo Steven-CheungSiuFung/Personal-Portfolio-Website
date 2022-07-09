@@ -7,7 +7,7 @@ export const ProjectsSectionContainer = styled.section`
   justify-content: center;
   align-items: center;
   padding: 6rem 15%;
-  box-shadow: 0px -5px 10px -10px gray;
+  box-shadow: 0px -5px 10px -10px grey;
 
   @media screen and (max-width: 900px) {
     & {

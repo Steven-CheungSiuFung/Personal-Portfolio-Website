@@ -12,19 +12,29 @@ import {
 
 const GreetingSection = () => {
   useEffect(() => {
-    console.log("Tnto Fire");
-    gsap.from(".greeting-fade-in", {
+    gsap.from(".greeting", {
       opacity: 0,
       duration: 1,
     });
+    gsap.to(".greeting", {
+      opacity: 1,
+      duration: 2,
+      animationDelay: "0.5s",
+    });
+
+    gsap.from(".greeting-fade-in", {
+      opacity: 0,
+      duration: 2,
+    });
     gsap.to(".greeting-fade-in", {
       opacity: 1,
-      duration: 1,
+      duration: 2,
+      animationDelay: "0.5",
     });
   }, []);
   return (
     <GreetingSectionContainer>
-      <GreetingWordContainer className="greeting-fade-in greeting">
+      <GreetingWordContainer className="greeting">
         <MyText size={"3rem"} weight={"500"}>
           👋 Hellooo!!
         </MyText>
