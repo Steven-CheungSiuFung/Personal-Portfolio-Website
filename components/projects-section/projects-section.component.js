@@ -10,7 +10,7 @@ const ProjectsSection = () => {
       <MyText size={"2rem"} weight={"500"}>
         Projects Preview
       </MyText>
-      <Spacer position={"top"} size={"3rem"}></Spacer>
+      <Spacer position={"top"} size={"4rem"}></Spacer>
       <ProjectsPreviewList />
     </ProjectsSectionContainer>
   );

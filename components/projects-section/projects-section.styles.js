@@ -6,7 +6,7 @@ export const ProjectsSectionContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 15%;
+  padding: 6rem 15%;
   box-shadow: 0px -5px 10px -10px gray;
 
   @media screen and (max-width: 900px) {
