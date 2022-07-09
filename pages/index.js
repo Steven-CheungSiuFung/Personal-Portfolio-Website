@@ -24,6 +24,7 @@ const HomePage = () => {
       <SkillsSection />
       <ProjectsSection />
       <AboutMeSection />
+      <div>Footer</div>
       <BackgroundAnimate />
     </Fragment>
   );

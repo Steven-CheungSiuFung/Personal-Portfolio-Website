@@ -17,21 +17,21 @@ const SkillCard = ({ item }) => {
   const skillImageName = item.title.toLowerCase();
   const description = item.description;
 
-  const titleRef = useRef();
+  const cardRef = useRef();
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    if (!titleRef.current) {
+    if (!cardRef.current) {
       return;
     }
-    gsap.from(titleRef.current, {
-      scrollTrigger: titleRef.current,
+    gsap.from(cardRef.current, {
+      scrollTrigger: cardRef.current,
       duration: 1,
       opacity: 0,
       x: "random(-200, 200)",
     });
-    gsap.to(titleRef.current, {
-      scrollTrigger: titleRef.current,
+    gsap.to(cardRef.current, {
+      scrollTrigger: cardRef.current,
       duration: 1,
       opacity: 1,
       x: 0,
@@ -41,7 +41,7 @@ const SkillCard = ({ item }) => {
   return (
     <TiltContainer className="Tilt" options={{ max: 25 }}>
       <div className="Tilt-inner">
-        <SkillCardContainer ref={titleRef}>
+        <SkillCardContainer ref={cardRef}>
           <SkillCardImageContainer>
             <Image
               src={`/images/${skillImageName}.png`}

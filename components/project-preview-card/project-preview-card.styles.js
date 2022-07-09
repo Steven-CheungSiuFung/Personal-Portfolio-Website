@@ -11,8 +11,6 @@ export const ProjectPreviewCardContainer = styled.div`
   align-items: center;
   padding: 0rem;
   box-shadow: ${(props) => props.xDirection}3px 1px 10px -5px gray;
-  transform: perspective(1000px) rotateX(0deg)
-    rotateY(${(props) => props.yDirection}4.5deg) scale3d(1, 1, 1);
 
   @media screen and (max-width: 760px) {
     & {

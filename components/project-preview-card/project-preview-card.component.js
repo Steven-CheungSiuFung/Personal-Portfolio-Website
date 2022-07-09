@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import MyText from "../utils/my-text/my-text.component";
 import Spacer from "../utils/spacer/spacer.component";
 import {
@@ -15,6 +17,8 @@ const ProjectPreviewCard = ({ project, index }) => {
   const [isMediumWidth, setIsMediumWidth] = useState(false);
   const isOdd = index % 2;
   const windowWidthRef = useRef();
+  const cardRef = useRef();
+  gsap.registerPlugin(ScrollTrigger);
 
   const getyDirection = (isOdd) => {
     const xDirection = isOdd ? "-" : "";
@@ -36,6 +40,26 @@ const ProjectPreviewCard = ({ project, index }) => {
   };
 
   useEffect(() => {
+    if (!cardRef.current) {
+      return;
+    }
+    gsap.from(cardRef.current, {
+      scrollTrigger: cardRef.current,
+      duration: 1,
+      opacity: 0,
+      transform: `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`,
+    });
+    gsap.to(cardRef.current, {
+      scrollTrigger: cardRef.current,
+      duration: 1,
+      opacity: 1,
+      transform: `perspective(1000px) rotateX(0deg) rotateY(${getyDirection(
+        isOdd
+      )}4.5deg)  scale3d(1, 1, 1)`,
+    });
+  }, []);
+
+  useEffect(() => {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
@@ -46,6 +70,7 @@ const ProjectPreviewCard = ({ project, index }) => {
         <ProjectPreviewCardContainer
           xDirection={getXDirection(isOdd)}
           yDirection={getyDirection(isOdd)}
+          ref={cardRef}
         >
           {(!isOdd || isMediumWidth) && (
             <ProjectPreviewCardImageWrapper>

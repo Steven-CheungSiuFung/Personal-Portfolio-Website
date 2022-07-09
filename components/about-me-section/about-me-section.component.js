@@ -39,7 +39,7 @@ const AboutMeSection = () => {
           <Spacer position={"top"} size={"1rem"} />
           <MyText size={"1rem"} weight={"400"}>
             As a sci-fi fans, I like watching sci-fi movies and playing video
-            games, also interesting with other technical stuff. Of course,
+            games, also interesting in other technical stuff. Of course,
             including programming.
           </MyText>
         </AboutMeTextWrapper>
