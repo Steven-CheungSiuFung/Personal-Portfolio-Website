@@ -3,4 +3,5 @@ export const colors = {
   secondary: "rgba(209, 213, 219, 0.3);",
   subTitle: "rgba(209, 213, 219, 0.9)",
   caption: "rgba(209, 213, 219, 0.5)",
+  tech: "rgb(105, 165, 175, 0.9)",
 };

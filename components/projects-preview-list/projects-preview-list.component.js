@@ -6,28 +6,7 @@ import {
   ProjectsPreviewListItem,
 } from "./projects-preview-list.styles";
 
-const ProjectsPreviewList = () => {
-  const projectData = [
-    {
-      name: "hotel-booking",
-      description:
-        "A full stack web application that allow people post or book hotel rooms.",
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    },
-    {
-      name: "hotel-booking",
-      description:
-        "A full stack web application that allow people post or book hotel rooms.",
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    },
-    {
-      name: "hotel-booking",
-      description:
-        "A full stack web application that allow people post or book hotel rooms.",
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    },
-  ];
-
+const ProjectsPreviewList = ({ projectData }) => {
   const marginDirection = (index) => {
     const isOdd = index % 2;
     if (isOdd) {

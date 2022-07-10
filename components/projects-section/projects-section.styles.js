@@ -9,7 +9,7 @@ export const ProjectsSectionContainer = styled.section`
   padding: 6rem 15%;
   box-shadow: 0px -5px 10px -10px grey;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1200px) {
     & {
       padding: 4rem 5%;
     }
