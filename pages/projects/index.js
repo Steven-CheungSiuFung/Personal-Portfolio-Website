@@ -4,7 +4,6 @@ import { gsap } from "gsap/dist/gsap";
 import { projectData } from "../../data/data";
 
 import ProjectsSection from "../../components/projects-section/projects-section.component";
-import BackgroundAnimate from "../../components/background-animate/background-animate.component";
 import FooterSection from "../../components/footer-section/footer-section.component";
 
 const AllProjectsPage = ({ projectData }) => {
@@ -22,7 +21,6 @@ const AllProjectsPage = ({ projectData }) => {
     <Fragment>
       <ProjectsSection projectData={projectData} />
       <FooterSection />
-      <BackgroundAnimate />
     </Fragment>
   );
 };

@@ -1,16 +1,15 @@
 import { Fragment, useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";
 
-import { projectData } from "../data/data";
+import { projectData, skillsData } from "../data/data";
 
 import GreetingSection from "../components/greeting-section/greeting-section.component";
 import SkillsSection from "../components/skills-section/skills-section.component";
 import ProjectsSection from "../components/projects-section/projects-section.component";
 import AboutMeSection from "../components/about-me-section/about-me-section.component";
-import BackgroundAnimate from "../components/background-animate/background-animate.component";
 import FooterSection from "../components/footer-section/footer-section.component";
 
-const HomePage = ({ projectData }) => {
+const HomePage = ({ projectData, skillsData }) => {
   useEffect(() => {
     gsap.from("section", {
       backgroundColor: "rgba(0, 0, 0, 0)",
@@ -24,11 +23,10 @@ const HomePage = ({ projectData }) => {
   return (
     <Fragment>
       <GreetingSection />
-      <SkillsSection />
+      <SkillsSection skillsData={skillsData} />
       <ProjectsSection projectData={projectData} />
       <AboutMeSection />
       <FooterSection />
-      <BackgroundAnimate />
     </Fragment>
   );
 };
@@ -40,6 +38,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       projectData: selectedProjects,
+      skillsData: skillsData,
     },
   };
 };

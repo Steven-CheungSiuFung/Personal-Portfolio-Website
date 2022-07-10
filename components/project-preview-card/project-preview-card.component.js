@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -15,6 +16,7 @@ import {
 } from "./project-preview-card.styles";
 
 const ProjectPreviewCard = ({ project, index }) => {
+  const router = useRouter();
   const imageName = project.name.toLowerCase();
   const [isMediumWidth, setIsMediumWidth] = useState(false);
   const isOdd = index % 2;
@@ -66,6 +68,12 @@ const ProjectPreviewCard = ({ project, index }) => {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
+  const onClickHandler = (event) => {
+    event.preventDefault();
+    const pathName = `/projects/${project.name.toLowerCase()}`;
+    router.push(pathName);
+  };
+
   return (
     <TiltContainer className="Tilt" options={{ max: 25 }}>
       <div className="Tilt-inner">
@@ -73,6 +81,7 @@ const ProjectPreviewCard = ({ project, index }) => {
           xDirection={getXDirection(isOdd)}
           yDirection={getyDirection(isOdd)}
           ref={cardRef}
+          onClick={onClickHandler}
         >
           {(!isOdd || isMediumWidth) && (
             <ProjectPreviewCardImageWrapper>

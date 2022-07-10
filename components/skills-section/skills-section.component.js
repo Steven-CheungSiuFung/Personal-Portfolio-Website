@@ -8,18 +8,7 @@ import {
   SkillsListContainer,
 } from "./skills-section.styles";
 
-const SkillsSection = () => {
-  const skills = [
-    { title: "HTML", description: "HTML 5" },
-    { title: "CSS", description: "CSS 3" },
-    { title: "javascript", description: "ES12" },
-    { title: "react.js", description: "Front-end Library" },
-    { title: "next.js", description: "Full-stack Framework" },
-    { title: "node.js", description: "Back-end Runtime" },
-    { title: "express.js", description: "Sever Framework" },
-    { title: "mongoDB", description: "Database" },
-  ];
-
+const SkillsSection = ({ skillsData }) => {
   return (
     <SkillsSectionContainer>
       <SkillsSectionTitle>
@@ -35,7 +24,7 @@ const SkillsSection = () => {
       </SkillsSectionTitle>
       <Spacer position={"top"} size={"5rem"}></Spacer>
       <SkillsListContainer>
-        {skills.map((skill, index) => (
+        {skillsData.map((skill, index) => (
           <SkillCard key={index} item={skill} />
         ))}
       </SkillsListContainer>
