@@ -11,6 +11,7 @@ import Spacer from "../utils/spacer/spacer.component";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import { colors } from "../utils/colors/colors.styles";
 
 const SkillCard = ({ item }) => {
   const skillTitle = item.title[0].toUpperCase() + item.title.slice(1);
@@ -52,11 +53,7 @@ const SkillCard = ({ item }) => {
           </SkillCardImageContainer>
 
           <Spacer position={"top"} size={"2rem"} />
-          <MyText
-            size={"1.2rem"}
-            weight={"500"}
-            color={"rgba(209, 213, 219, 0.9)"}
-          >
+          <MyText size={"1.2rem"} weight={"500"} color={colors.subTitle}>
             {skillTitle}
           </MyText>
           <Spacer position={"top"} size={"0.3rem"} />

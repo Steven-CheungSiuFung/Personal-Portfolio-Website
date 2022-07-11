@@ -7,6 +7,7 @@ import ProjectDetialsSection from "../../components/project-details-section/proj
 import FooterSection from "../../components/footer-section/footer-section.component";
 
 const ProjectDetailPage = ({ project }) => {
+  console.log(project);
   useEffect(() => {
     gsap.from("section", {
       backgroundColor: "rgba(0, 0, 0, 0)",
@@ -17,9 +18,19 @@ const ProjectDetailPage = ({ project }) => {
       duration: 1,
     });
   }, []);
+  useEffect(() => {
+    gsap.from("p", {
+      opacity: 0,
+      duration: 1,
+    });
+    gsap.to("p", {
+      opacity: 1,
+      duration: 1,
+    });
+  }, []);
   return (
     <Fragment>
-      <ProjectDetialsSection projectData={[project]} />
+      <ProjectDetialsSection projectData={project} />
       <FooterSection />
     </Fragment>
   );
@@ -46,11 +57,11 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const pathsWithParams = projectData.map((project) => ({
-    params: { projectId: project.name.toLowerCase() },
-  }));
+  // const pathsWithParams = projectData.map((project) => ({
+  //   params: { projectId: project.name.toLowerCase() },
+  // }));
   return {
-    paths: pathsWithParams,
-    fallback: "blocking",
+    paths: [{ params: { projectId: "hotels-booking" } }],
+    fallback: false,
   };
 };

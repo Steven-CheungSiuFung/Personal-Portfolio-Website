@@ -41,13 +41,13 @@ const AboutMeSection = () => {
 
       <AboutMeContentContainer ref={cardRef}>
         <AboutMeTextWrapper>
-          <MyText size={"1rem"} weight={"400"}>
+          <MyText size={"1rem"} weight={"400"} opacity={0.9}>
             Hi, my name is Cheung Siu Fung, or just call me Steven. I am a
             self-taught programmer mainly focus on web development, also
             experience on moblie app development.
           </MyText>
           <Spacer position={"top"} size={"1rem"} />
-          <MyText size={"1rem"} weight={"400"}>
+          <MyText size={"1rem"} weight={"400"} opacity={0.9}>
             I started learning programming when I was dealing with some data in
             my work. I tried to find a lazy way to automate the process
             perfectly😂, and I finally do it with python. In the process, I find
@@ -55,14 +55,14 @@ const AboutMeSection = () => {
             designed.
           </MyText>
           <Spacer position={"top"} size={"1rem"} />
-          <MyText size={"1rem"} weight={"400"}>
+          <MyText size={"1rem"} weight={"400"} opacity={0.9}>
             Afterward I started to learn web dev while building a web scraper,
             and it opens up a whole new world for me. I dive into web
             development from front-end to back-end, building fully functional
             application, and keep improving my skills everyday.
           </MyText>
           <Spacer position={"top"} size={"1rem"} />
-          <MyText size={"1rem"} weight={"400"}>
+          <MyText size={"1rem"} weight={"400"} opacity={0.9}>
             As a sci-fi fans, I like watching sci-fi movies, playing video
             games, and other technical stuff. I also like traveling and take
             some random photo, I wish someday can travel to Mars and take a

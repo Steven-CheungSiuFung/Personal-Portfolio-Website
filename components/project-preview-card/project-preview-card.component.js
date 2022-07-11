@@ -36,9 +36,9 @@ const ProjectPreviewCard = ({ project, index }) => {
 
   const updateDimensions = () => {
     windowWidthRef.current = window.innerWidth;
-    if (windowWidthRef.current < 760) {
+    if (windowWidthRef.current <= 860) {
       setIsMediumWidth(true);
-    } else if (windowWidthRef.current > 760) {
+    } else if (windowWidthRef.current > 860) {
       setIsMediumWidth(false);
     }
   };
@@ -66,6 +66,10 @@ const ProjectPreviewCard = ({ project, index }) => {
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  useEffect(() => {
+    updateDimensions();
   }, []);
 
   const onClickHandler = (event) => {
@@ -99,7 +103,7 @@ const ProjectPreviewCard = ({ project, index }) => {
             <MyText size={"1.5rem"} weight={"500"} color={colors.tech}>
               {project.name.toUpperCase()}
             </MyText>
-            <MyText size={"1rem"} weight={"400"} color={colors.subTitle}>
+            <MyText size={"1rem"} weight={"400"} color={colors.para}>
               {project.description}
             </MyText>
             <ContentTechWrapper>
