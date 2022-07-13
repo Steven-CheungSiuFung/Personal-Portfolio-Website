@@ -71,56 +71,51 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
   }, []);
 
   return (
-    <TiltContainer className="Tilt" options={{ max: 25 }}>
-      <div className="Tilt-inner">
-        <ProjectDetialsPageCardContainer
-          xDirection={getXDirection(isOdd)}
-          yDirection={getyDirection(isOdd)}
-          ref={cardRef}
-          background={background}
-        >
-          {(!isOdd || isMediumWidth) && (
-            <ProjectDetialsPageCardImageWrapper>
-              <ProjectDetialsPageCardImageContainer>
-                <Image
-                  src={`/images/${imageName}.png`}
-                  alt={`project-img`}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </ProjectDetialsPageCardImageContainer>
-            </ProjectDetialsPageCardImageWrapper>
-          )}
-          <ProjectDetialsPageCardContent>
-            <MyText size={"1.5rem"} weight={"500"} color={colors.tech}>
-              {item.page.toUpperCase()}
-            </MyText>
-            {item.content.map((item, index) => (
-              <MyText
-                key={index}
-                size={"1rem"}
-                weight={"400"}
-                color={colors.para}
-              >
-                {item}
-              </MyText>
-            ))}
-          </ProjectDetialsPageCardContent>
-          {isOdd && !isMediumWidth ? (
-            <ProjectDetialsPageCardImageWrapper>
-              <ProjectDetialsPageCardImageContainer>
-                <Image
-                  src={`/images/${imageName}.png`}
-                  alt={`project-img`}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </ProjectDetialsPageCardImageContainer>
-            </ProjectDetialsPageCardImageWrapper>
-          ) : null}
-        </ProjectDetialsPageCardContainer>
-      </div>
-    </TiltContainer>
+    // {    <TiltContainer className="Tilt" options={{ max: 25 }}>
+    //       <div className="Tilt-inner">}
+    <ProjectDetialsPageCardContainer
+      xDirection={getXDirection(isOdd)}
+      yDirection={getyDirection(isOdd)}
+      ref={cardRef}
+      background={background}
+    >
+      {(!isOdd || isMediumWidth) && (
+        <ProjectDetialsPageCardImageWrapper>
+          <ProjectDetialsPageCardImageContainer>
+            <Image
+              src={`/images/${imageName}.png`}
+              alt={`project-img`}
+              layout="fill"
+              objectFit="cover"
+            />
+          </ProjectDetialsPageCardImageContainer>
+        </ProjectDetialsPageCardImageWrapper>
+      )}
+      <ProjectDetialsPageCardContent>
+        <MyText size={"1.5rem"} weight={"500"} color={colors.tech}>
+          {item.page.toUpperCase()}
+        </MyText>
+        {item.content.map((item, index) => (
+          <MyText key={index} size={"1rem"} weight={"400"} color={colors.para}>
+            {item}
+          </MyText>
+        ))}
+      </ProjectDetialsPageCardContent>
+      {isOdd && !isMediumWidth ? (
+        <ProjectDetialsPageCardImageWrapper>
+          <ProjectDetialsPageCardImageContainer>
+            <Image
+              src={`/images/${imageName}.png`}
+              alt={`project-img`}
+              layout="fill"
+              objectFit="cover"
+            />
+          </ProjectDetialsPageCardImageContainer>
+        </ProjectDetialsPageCardImageWrapper>
+      ) : null}
+    </ProjectDetialsPageCardContainer>
+    // {      </div>
+    //     </TiltContainer>}
   );
 };
 
