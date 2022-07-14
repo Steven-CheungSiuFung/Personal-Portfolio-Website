@@ -17,7 +17,7 @@ import {
 
 const ProjectPreviewCard = ({ project, index }) => {
   const router = useRouter();
-  const imageName = project.name.toLowerCase();
+  // const imageName = project.name.toLowerCase();
   const [isMediumWidth, setIsMediumWidth] = useState(false);
   const isOdd = index % 2;
   const windowWidthRef = useRef();
@@ -91,7 +91,7 @@ const ProjectPreviewCard = ({ project, index }) => {
             <ProjectPreviewCardImageWrapper>
               <ProjectPreviewCardImageContainer>
                 <Image
-                  src={`/images/${imageName}.png`}
+                  src={`/api/images/${project.name}`}
                   alt={`project-img`}
                   layout="fill"
                   objectFit="cover"
@@ -125,7 +125,7 @@ const ProjectPreviewCard = ({ project, index }) => {
             <ProjectPreviewCardImageWrapper>
               <ProjectPreviewCardImageContainer>
                 <Image
-                  src={`/images/${imageName}.png`}
+                  src={`/api/images/${project.name}`}
                   alt={`project-img`}
                   layout="fill"
                   objectFit="cover"
