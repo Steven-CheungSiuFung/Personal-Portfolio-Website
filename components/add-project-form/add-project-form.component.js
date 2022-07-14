@@ -24,10 +24,8 @@ const defaultFormFields = {
   description: "",
   tech: [],
   selected: false,
-  detials: {
-    frontend: [],
-    backend: [],
-  },
+  frontend: "",
+  backend: "",
 };
 
 // The init state for frontend and backend content array
@@ -136,12 +134,15 @@ const AddProjectForm = () => {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const techArray = techString.split(" ");
-    const detials = {
-      frontend: frontendArray,
-      backend: backendArray,
-      features: [],
+
+    const formData = {
+      ...formFields,
+      tech: techArray,
+      frontend: JSON.stringify(frontendArray),
+      backend: JSON.stringify(backendArray),
     };
-    const formData = { ...formFields, tech: techArray, detials: detials };
+
+    console.log("CLient FormData ==> ", formData);
 
     const body = new FormData();
     Object.keys(formData).map((key) => {
