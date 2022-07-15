@@ -34,14 +34,15 @@ const ProjectDetialsSection = ({ projectData }) => {
           <Spacer position={"top"} size={"0rem"}></Spacer>      
       */}
 
-          {projectData.detials.features.map((item, index) => (
-            <ProjectDetialsPageCard
-              key={index}
-              index={index}
-              imageName={imageName}
-              item={item}
-            />
-          ))}
+          {projectData.features &&
+            projectData.features.map((item, index) => (
+              <ProjectDetialsPageCard
+                key={index}
+                index={index}
+                imageName={imageName}
+                item={item}
+              />
+            ))}
         </ProjectDetialsCardPages>
       </ProjectDetialsPagesSectionContainer>
     </Fragment>

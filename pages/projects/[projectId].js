@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";
 
-import { projectData } from "../../data/data";
+import { getProjectDetials } from "../../lib/db-utils/db-project";
 
 import ProjectDetialsSection from "../../components/project-details-section/project-details-section.component";
 import FooterSection from "../../components/footer-section/footer-section.component";
@@ -38,30 +38,30 @@ const ProjectDetailPage = ({ project }) => {
 
 export default ProjectDetailPage;
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const { params } = context;
   const projectId = params.projectId;
-  const project = projectData.find(
-    (project) => project.name.toLowerCase() === projectId
-  );
+  // const project = projectData.find(
+  //   (project) => project.name.toLowerCase() === projectId
+  // );
 
-  if (!project) {
+  const projectData = await getProjectDetials(projectId);
+
+  if (!projectData) {
     return { notFound: true };
   }
 
   return {
     props: {
-      project: project,
+      project: projectData,
     },
   };
 };
 
-export const getStaticPaths = async () => {
-  // const pathsWithParams = projectData.map((project) => ({
-  //   params: { projectId: project.name.toLowerCase() },
-  // }));
-  return {
-    paths: [{ params: { projectId: "hotels-booking" } }],
-    fallback: false,
-  };
-};
+// export const getStaticPaths = async () => {
+
+//   return {
+//     paths: [{ params: { projectId: "hotels-booking" } }],
+//     fallback: false,
+//   };
+// };

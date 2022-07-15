@@ -17,8 +17,6 @@ import {
 } from "./project-details-card.styles";
 
 const ProjectDetialsCard = ({ projectData }) => {
-  const imageName = projectData.name.toLowerCase();
-
   return (
     <ProjectDetailsCardContainer>
       <ProjectDetialsCardMain>
@@ -35,7 +33,7 @@ const ProjectDetialsCard = ({ projectData }) => {
           <ProjectDetialsCardMainHeaderImageWrapper>
             <ProjectDetialsCardMainHeaderImage>
               <Image
-                src={`/images/${imageName}.png`}
+                src={`/api/images/${projectData.name}`}
                 alt={`project-img`}
                 layout="fill"
                 objectFit="cover"
@@ -50,7 +48,7 @@ const ProjectDetialsCard = ({ projectData }) => {
             </MyText>
             <Spacer position={"bottom"} size={"1rem"} />
             <ProjectDetialsCardMainTechContent>
-              {projectData.detials.frontend.map((item, index) => (
+              {projectData.frontend.map((item, index) => (
                 <Spacer key={index} position={"top"} size={"0.5rem"}>
                   <MyText color={colors.para}>{item}</MyText>
                 </Spacer>
@@ -63,7 +61,7 @@ const ProjectDetialsCard = ({ projectData }) => {
             </MyText>
             <Spacer position={"bottom"} size={"1rem"} />
             <ProjectDetialsCardMainTechContent>
-              {projectData.detials.backend.map((item, index) => (
+              {projectData.backend.map((item, index) => (
                 <Spacer key={index} position={"top"} size={"0.5rem"}>
                   <MyText color={colors.para}>{item}</MyText>
                 </Spacer>

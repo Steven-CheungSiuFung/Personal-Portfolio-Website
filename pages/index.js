@@ -1,7 +1,6 @@
 import { Fragment, useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";
-import mongoose from "mongoose";
-import Project from "../lib/models/project";
+import { getProjectsPreview } from "../lib/db-utils/db-project";
 
 import { projectData, skillsData } from "../data/data";
 
@@ -37,13 +36,7 @@ export default HomePage;
 
 export const getStaticProps = async () => {
   try {
-    mongoose.connect(process.env.MONGODB_URL);
-    const projects = await Project.find()
-      .where("selected")
-      .equals(true)
-      .select(["name", "description", "tech"]);
-    const projectsData = JSON.parse(JSON.stringify(projects));
-    console.log(projectsData);
+    const projectsData = await getProjectsPreview();
     return {
       props: {
         projectData: projectsData,

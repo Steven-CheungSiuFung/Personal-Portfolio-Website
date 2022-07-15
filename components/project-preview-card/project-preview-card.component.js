@@ -74,7 +74,7 @@ const ProjectPreviewCard = ({ project, index }) => {
 
   const onClickHandler = (event) => {
     event.preventDefault();
-    const pathName = `/projects/${project.name.toLowerCase()}`;
+    const pathName = `/projects/${project._id}`;
     router.push(pathName);
   };
 
