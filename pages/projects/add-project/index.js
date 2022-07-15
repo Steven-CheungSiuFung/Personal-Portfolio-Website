@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";
-import FooterSection from "../../components/footer-section/footer-section.component";
-import AddProjectSection from "../../components/add-project-section/add-project-section.component";
+import FooterSection from "../../../components/footer-section/footer-section.component";
+import AddProjectSection from "../../../components/add-project-section/add-project-section.component";
 
 const AddProjectPage = () => {
   useEffect(() => {
