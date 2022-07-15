@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import FormInput from "../form-input/form-input.component";
 
@@ -23,6 +23,7 @@ const defaultFormFields = {
   page: "",
   content: "",
   image: {},
+  projectId: "",
 };
 
 // The init state for content and backend content array
@@ -39,7 +40,12 @@ const AddProjectPageForm = ({ projectId }) => {
   const [imagePreview, setImagePreview] = useState(
     "/images/personal-portfolio-website.png"
   );
+
   const { page } = formFields;
+
+  useEffect(() => {
+    setFormFields({ ...formFields, projectId: projectId });
+  }, []);
 
   // Set {page} input into formFields state
   const onChangeHandler = (event) => {
@@ -85,8 +91,6 @@ const AddProjectPageForm = ({ projectId }) => {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
-    console.log("formFileds ==> ", formFields);
-
     const formData = {
       ...formFields,
       content: JSON.stringify(contentArray),
@@ -98,13 +102,12 @@ const AddProjectPageForm = ({ projectId }) => {
     Object.keys(formData).map((key) => {
       body.append(key, formData[key]);
     });
-    console.log("dataForm ==> ", body);
-    // const response = await fetch("/api/project/create-project", {
-    //   method: "POST",
-    //   body: body,
-    // });
-    // const data = await response.json();
-    // console.log(data);
+    const response = await fetch("/api/project/add-details-page", {
+      method: "POST",
+      body: body,
+    });
+    const data = await response.json();
+    console.log(data);
   };
 
   return (

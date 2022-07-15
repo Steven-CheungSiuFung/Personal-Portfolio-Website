@@ -1,21 +1,21 @@
 import formidable from "formidable";
-import { createProject } from "../../../lib/db-utils/db-project";
+import { addProjectPage } from "../../../lib/db-utils/db-project";
 
 export const config = {
   api: {
     bodyParser: false,
-    responseLimit: "8mb",
+    responseLimit: false,
   },
 };
 
 const handler = async (req, res) => {
-  console.log("add page hit");
   const form = new formidable.IncomingForm();
 
   form.parse(req, async function (err, fields, files) {
     if (err) return reject(err);
-    const result = await createProject(fields, files);
-    res.status(201).json(result);
+    console.log(fields);
+    const result = await addProjectPage(fields, files);
+    res.status(200).json(result);
   });
 };
 
