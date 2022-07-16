@@ -41,9 +41,6 @@ export default ProjectDetailPage;
 export const getServerSideProps = async (context) => {
   const { params } = context;
   const projectId = params.projectId;
-  // const project = projectData.find(
-  //   (project) => project.name.toLowerCase() === projectId
-  // );
 
   const projectData = await getProjectDetials(projectId);
 
@@ -57,11 +54,3 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
-
-// export const getStaticPaths = async () => {
-
-//   return {
-//     paths: [{ params: { projectId: "hotels-booking" } }],
-//     fallback: false,
-//   };
-// };

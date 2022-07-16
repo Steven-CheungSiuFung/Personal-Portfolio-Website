@@ -83,7 +83,7 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
         <ProjectDetialsPageCardImageWrapper>
           <ProjectDetialsPageCardImageContainer>
             <Image
-              src={`/images/${imageName}.png`}
+              src={`/api/images/page/${item._id}`}
               alt={`project-img`}
               layout="fill"
               objectFit="cover"
@@ -105,7 +105,7 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
         <ProjectDetialsPageCardImageWrapper>
           <ProjectDetialsPageCardImageContainer>
             <Image
-              src={`/images/${imageName}.png`}
+              src={`/api/images/page/${item._id}`}
               alt={`project-img`}
               layout="fill"
               objectFit="cover"
