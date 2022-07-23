@@ -1,4 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import { TiThMenu } from "react-icons/ti";
@@ -19,6 +21,10 @@ const NavigationBar = () => {
   const winWidthRef = useRef();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isToggleListOpen, setIsToggleListOpen] = useState(false);
+  const { data, status } = useSession();
+
+  const authenticated = status === "authenticated";
+  const loading = status === "loading";
 
   const updateDimensions = () => {
     winWidthRef.current = window.innerWidth;
@@ -32,6 +38,10 @@ const NavigationBar = () => {
   const handleListToggle = (event) => {
     event.preventDefault();
     setIsToggleListOpen(!isToggleListOpen);
+  };
+
+  const logoutHandler = () => {
+    signOut();
   };
 
   useEffect(() => {
@@ -74,6 +84,17 @@ const NavigationBar = () => {
                 <Link href="/three-d">3D-mode</Link>
               </MyText>
             </NavLinkItem>
+            {!authenticated ? (
+              <NavLinkItem>
+                <MyText>
+                  <Link href="/user/login">Login</Link>
+                </MyText>
+              </NavLinkItem>
+            ) : (
+              <NavLinkItem onClick={logoutHandler}>
+                <MyText>Logout</MyText>
+              </NavLinkItem>
+            )}
           </NavLinkList>
         </Fragment>
       ) : (
@@ -95,6 +116,17 @@ const NavigationBar = () => {
                   <Link href="/three-d">3D-mode</Link>
                 </MyText>
               </SmallScreenNavItem>
+              {!authenticated ? (
+                <SmallScreenNavItem>
+                  <MyText>
+                    <Link href="/user/login">Login</Link>
+                  </MyText>
+                </SmallScreenNavItem>
+              ) : (
+                <SmallScreenNavItem onClick={logoutHandler}>
+                  <MyText>Logout</MyText>
+                </SmallScreenNavItem>
+              )}
             </SmallScreenNavList>
           )}
         </Fragment>

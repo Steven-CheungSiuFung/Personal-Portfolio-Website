@@ -45,6 +45,7 @@ export const NavLinkItem = styled.li`
   justify-content: center;
   align-items: baseline;
   padding-left: 2rem;
+  cursor: pointer;
 `;
 
 export const NavListToggleIcon = styled.div`

@@ -1,16 +1,19 @@
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
 import Layout from "../components/Layout/layout.component";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <Layout>
-      <Head>
-        <title>Steven Station</title>
-        <link rel="shortcut icon" href="/logo.png" />
-      </Head>
-      <Component {...pageProps} />
-    </Layout>
+    <SessionProvider session={session}>
+      <Layout>
+        <Head>
+          <title>Steven Station</title>
+          <link rel="shortcut icon" href="/logo.png" />
+        </Head>
+        <Component {...pageProps} />
+      </Layout>
+    </SessionProvider>
   );
 }
 
