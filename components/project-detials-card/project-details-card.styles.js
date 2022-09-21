@@ -55,6 +55,10 @@ export const ProjectDetialsCardMainHeaderContent = styled.div`
   }
 `;
 
+export const ProjectUrl = styled.div`
+  cursor: pointer;
+`;
+
 export const ProjectTitle = styled.div`
   display: flex;
 `;
@@ -101,6 +105,7 @@ export const ProjectDetialsCardMainTechWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  padding-bottom: 1.5rem;
 `;
 
 export const ProjectDetialsCardMainTechContent = styled.div`

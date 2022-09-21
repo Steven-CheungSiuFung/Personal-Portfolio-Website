@@ -11,10 +11,9 @@ export const ProjectDetialsPageCardContainer = styled.div`
   align-items: center;
   padding: 0rem;
   box-shadow: ${(props) => props.xDirection}3px 1px 10px -5px gray;
-  cursor: pointer;
   ${(props) => props.background}
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1200px) {
     & {
       flex-direction: column;
       padding-top: 1rem;
@@ -54,7 +53,7 @@ export const ProjectDetialsPageCardContent = styled.div`
   gap: 2rem;
   padding: 2rem 3rem;
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1200px) {
     & {
       padding: 4rem 2rem;
       align-items: center;

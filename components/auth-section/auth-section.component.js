@@ -10,6 +10,7 @@ import MyText from "../utils/my-text/my-text.component";
 import MyButton from "../my-button/my-button.component";
 import { colors } from "../utils/colors/colors.styles";
 import Spacer from "../utils/spacer/spacer.component";
+import { useRouter } from "next/router";
 
 const defaultFormFields = {
   email: "",
@@ -18,6 +19,7 @@ const defaultFormFields = {
 };
 
 const AuthSection = () => {
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password, secretKey } = formFields;
@@ -28,13 +30,11 @@ const AuthSection = () => {
   };
 
   const onChangeFormType = () => {
-    console.log("Change Form");
     setIsLogin(!isLogin);
   };
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(formFields);
 
     if (!isLogin) {
       const response = await fetch("/api/auth/create-user", {
@@ -45,7 +45,6 @@ const AuthSection = () => {
         },
       });
       const data = await response.json();
-      console.log("REGISTER RESPONSE ==> ", data);
     } else {
       try {
         const result = await signIn("credentials", {
@@ -53,7 +52,9 @@ const AuthSection = () => {
           email: formFields.email,
           password: formFields.password,
         });
-        console.log(result);
+        if (result.ok) {
+          router.push("/");
+        }
       } catch (error) {
         console.log(error);
       }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { glassmorphism } from "../utils/glassmorphism/glassmorphism.styles";
 
 export const ProjectDetialsSectionContainer = styled.section`
   width: 100%;
@@ -44,4 +45,11 @@ export const ProjectDetialsCardPages = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+`;
+
+export const AddPageButton = styled.div`
+  display: flex;
+  padding: 0.5rem 1rem;
+  margin-top: 4rem;
+  ${glassmorphism.secondary}
 `;

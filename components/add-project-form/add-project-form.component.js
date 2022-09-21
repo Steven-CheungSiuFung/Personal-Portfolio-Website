@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import FormInput from "../form-input/form-input.component";
 
 import MyText from "../utils/my-text/my-text.component";
@@ -44,6 +45,7 @@ const defaultBackendContent = [
 ];
 
 const AddProjectForm = () => {
+  const router = useRouter();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [techString, setTechString] = useState("");
   const [frontendArray, setFrontendArray] = useState(defaultFrontendContent);
@@ -142,19 +144,18 @@ const AddProjectForm = () => {
       backend: JSON.stringify(backendArray),
     };
 
-    console.log("CLient FormData ==> ", formData);
-
     const body = new FormData();
     Object.keys(formData).map((key) => {
       body.append(key, formData[key]);
     });
-    console.log(body);
     const response = await fetch("/api/project/create-project", {
       method: "POST",
       body: body,
     });
     const data = await response.json();
-    console.log(data);
+    if (data.ok) {
+      router.push("/");
+    }
   };
 
   return (

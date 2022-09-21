@@ -34,9 +34,9 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
 
   const updateDimensions = () => {
     windowWidthRef.current = window.innerWidth;
-    if (windowWidthRef.current < 1280) {
+    if (windowWidthRef.current < 1200) {
       setIsMediumWidth(true);
-    } else if (windowWidthRef.current > 1280) {
+    } else if (windowWidthRef.current > 1200) {
       setIsMediumWidth(false);
     }
   };

@@ -76,24 +76,31 @@ const NavigationBar = () => {
           <NavLinkList>
             <NavLinkItem>
               <MyText>
-                <Link href="/projects">Projects</Link>
+                <Link href="/projects">PROJECTS</Link>
               </MyText>
             </NavLinkItem>
-            <NavLinkItem>
+            {/*            <NavLinkItem>
               <MyText>
-                <Link href="/three-d">3D-mode</Link>
+                <Link href="/three-d">3D-MODE</Link>
               </MyText>
-            </NavLinkItem>
+      </NavLinkItem>*/}
             {!authenticated ? (
               <NavLinkItem>
                 <MyText>
-                  <Link href="/user/login">Login</Link>
+                  <Link href="/user/login">LOGIN</Link>
                 </MyText>
               </NavLinkItem>
             ) : (
-              <NavLinkItem onClick={logoutHandler}>
-                <MyText>Logout</MyText>
-              </NavLinkItem>
+              <Fragment>
+                <NavLinkItem>
+                  <MyText>
+                    <Link href="/projects/add-project">ADD-PROJECT</Link>
+                  </MyText>
+                </NavLinkItem>
+                <NavLinkItem onClick={logoutHandler}>
+                  <MyText>LOGOUT</MyText>
+                </NavLinkItem>
+              </Fragment>
             )}
           </NavLinkList>
         </Fragment>
@@ -108,23 +115,23 @@ const NavigationBar = () => {
             <SmallScreenNavList>
               <SmallScreenNavItem>
                 <MyText>
-                  <Link href="/projects">Projects</Link>
+                  <Link href="/projects">PROJECTS</Link>
                 </MyText>
               </SmallScreenNavItem>
               <SmallScreenNavItem>
                 <MyText>
-                  <Link href="/three-d">3D-mode</Link>
+                  <Link href="/three-d">3D-MODE</Link>
                 </MyText>
               </SmallScreenNavItem>
               {!authenticated ? (
                 <SmallScreenNavItem>
                   <MyText>
-                    <Link href="/user/login">Login</Link>
+                    <Link href="/user/login">LOGIN</Link>
                   </MyText>
                 </SmallScreenNavItem>
               ) : (
                 <SmallScreenNavItem onClick={logoutHandler}>
-                  <MyText>Logout</MyText>
+                  <MyText>LOGOUT</MyText>
                 </SmallScreenNavItem>
               )}
             </SmallScreenNavList>

@@ -3,7 +3,8 @@ import { getProjectCoverImage } from "../../../lib/db-utils/db-project";
 const handler = async (req, res) => {
   const { projectName } = req.query;
   const imageData = await getProjectCoverImage(projectName);
-  return res.send(imageData);
+  await res.send(imageData);
+  return res.end();
 };
 
 export default handler;

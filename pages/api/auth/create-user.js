@@ -15,8 +15,7 @@ const handler = async (req, res) => {
     res.status(400).json({ message: "Invalid Input" });
     return;
   }
-  const result = await createUser(formData);
-  console.log(result);
+  await createUser(formData);
   res.status(201).json({ message: "User Created!" });
 };
 

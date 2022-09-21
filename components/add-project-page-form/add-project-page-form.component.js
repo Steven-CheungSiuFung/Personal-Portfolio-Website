@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import FormInput from "../form-input/form-input.component";
 
@@ -35,6 +36,7 @@ const defaultContent = [
 ];
 
 const AddProjectPageForm = ({ projectId }) => {
+  const router = useRouter();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [contentArray, setContentArray] = useState(defaultContent);
   const [imagePreview, setImagePreview] = useState(
@@ -96,8 +98,6 @@ const AddProjectPageForm = ({ projectId }) => {
       content: JSON.stringify(contentArray),
     };
 
-    console.log("CLient FormData ==> ", formData);
-
     const body = new FormData();
     Object.keys(formData).map((key) => {
       body.append(key, formData[key]);
@@ -107,7 +107,9 @@ const AddProjectPageForm = ({ projectId }) => {
       body: body,
     });
     const data = await response.json();
-    console.log(data);
+    if (data.ok) {
+      router.push("/");
+    }
   };
 
   return (

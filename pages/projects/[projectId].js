@@ -6,8 +6,7 @@ import { getProjectDetials } from "../../lib/db-utils/db-project";
 import ProjectDetialsSection from "../../components/project-details-section/project-details-section.component";
 import FooterSection from "../../components/footer-section/footer-section.component";
 
-const ProjectDetailPage = ({ project }) => {
-  console.log(project);
+const ProjectDetailPage = ({ project, projectId }) => {
   useEffect(() => {
     gsap.from("section", {
       backgroundColor: "rgba(0, 0, 0, 0)",
@@ -30,7 +29,7 @@ const ProjectDetailPage = ({ project }) => {
   }, []);
   return (
     <Fragment>
-      <ProjectDetialsSection projectData={project} />
+      <ProjectDetialsSection projectData={project} projectId={projectId} />
       <FooterSection />
     </Fragment>
   );
@@ -51,6 +50,7 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       project: projectData,
+      projectId: projectId,
     },
   };
 };

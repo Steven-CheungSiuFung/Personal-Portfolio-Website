@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <SessionProvider session={session}>
       <Layout>
         <Head>
-          <title>Steven Station</title>
+          <title>Steven Cheung</title>
           <link rel="shortcut icon" href="/logo.png" />
         </Head>
         <Component {...pageProps} />

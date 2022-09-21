@@ -11,22 +11,16 @@ export const config = {
 };
 
 const handler = async (req, res) => {
-  const session = await unstable_getServerSession(
-    context.req,
-    context.res,
-    authOptions
-  );
+  const session = await unstable_getServerSession(req, res, authOptions);
   if (!session) {
-    res.status(401).json({ message: "You are not authenticated" });
-    return;
+    return res.status(401).json({ message: "You are not authenticated" });
   }
-  console.log("add page hit");
   const form = new formidable.IncomingForm();
 
   form.parse(req, async function (err, fields, files) {
     if (err) return reject(err);
-    const result = await createProject(fields, files);
-    res.status(201).json(result);
+    await createProject(fields, files);
+    return res.status(201).json({ ok: true });
   });
 };
 

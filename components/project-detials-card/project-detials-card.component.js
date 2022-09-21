@@ -8,6 +8,7 @@ import {
   ProjectDetialsCardMain,
   ProjectDetialsCardMainHeader,
   ProjectDetialsCardMainHeaderContent,
+  ProjectUrl,
   ProjectTitle,
   ProjectDetialsCardMainHeaderImageWrapper,
   ProjectDetialsCardMainHeaderImage,
@@ -17,6 +18,12 @@ import {
 } from "./project-details-card.styles";
 
 const ProjectDetialsCard = ({ projectData }) => {
+  const navToProjectUrl = () => {
+    if (projectData.url) {
+      window.open(projectData.url, "_blank").focus();
+    }
+  };
+
   return (
     <ProjectDetailsCardContainer>
       <ProjectDetialsCardMain>
@@ -24,11 +31,17 @@ const ProjectDetialsCard = ({ projectData }) => {
           <ProjectDetialsCardMainHeaderContent>
             <ProjectTitle>
               <MyText size={"2rem"} weight={"500"} color={colors.main}>
-                {projectData.name}
+                {projectData.name.toUpperCase()}
               </MyText>
             </ProjectTitle>
             <Spacer position={"top"} size={"2rem"} />
             <MyText color={colors.para}>{projectData.description}</MyText>
+            <Spacer position={"top"} size={"2rem"} />
+            {projectData.url && (
+              <ProjectUrl onClick={navToProjectUrl}>
+                <MyText color={colors.para}>{projectData.url}</MyText>
+              </ProjectUrl>
+            )}
           </ProjectDetialsCardMainHeaderContent>
           <ProjectDetialsCardMainHeaderImageWrapper>
             <ProjectDetialsCardMainHeaderImage>
