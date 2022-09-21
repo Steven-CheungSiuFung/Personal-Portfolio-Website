@@ -37,10 +37,9 @@ const ProjectDetailPage = ({ project, projectId }) => {
 
 export default ProjectDetailPage;
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const { params } = context;
   const projectId = params.projectId;
-
   const projectData = await getProjectDetials(projectId);
 
   if (!projectData) {
@@ -54,3 +53,33 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
+
+export const getStaticPaths = () => {
+  return {
+    paths: [
+      { params: { projectId: "6323da2b787b88ce10b41a6d" } },
+      { params: { projectId: "6322de42676557211142c009" } },
+      { params: { projectId: "6322a2b6676557211142bffe" } },
+      { params: { projectId: "62d0076510c82e8cde9a3a52" } },
+    ],
+    fallback: "blocking",
+  };
+};
+
+// export const getServerSideProps = async (context) => {
+//   const { params } = context;
+//   const projectId = params.projectId;
+
+//   const projectData = await getProjectDetials(projectId);
+
+//   if (!projectData) {
+//     return { notFound: true };
+//   }
+
+//   return {
+//     props: {
+//       project: projectData,
+//       projectId: projectId,
+//     },
+//   };
+// };
