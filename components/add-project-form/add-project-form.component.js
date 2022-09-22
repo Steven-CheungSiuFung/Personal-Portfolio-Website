@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import FormInput from "../form-input/form-input.component";
+import { uploadImageToCloud } from "../../lib/cloudinary/cloudinary";
 
+import FormInput from "../form-input/form-input.component";
 import MyText from "../utils/my-text/my-text.component";
 import MyButton from "../my-button/my-button.component";
 import Spacer from "../utils/spacer/spacer.component";
@@ -124,33 +125,29 @@ const AddProjectForm = () => {
     setBackendArray(newArray);
   };
 
-  // upload image, set into image preview and formfields
   const uploadImageHandler = (event) => {
     setImagePreview(URL.createObjectURL(event.target.files[0]));
-    setFormFields({ ...formFields, image: event.target.files[0] });
+    setImage(event.target.files[0]);
   };
 
-  // 1) convert tech string to array;
-  // 2) marge tech array, frontend array, backend array into formFields;
-  // 3) submit formFields to backend;
   const onSubmitHandler = async (event) => {
     event.preventDefault();
+
+    const imageData = await uploadImageToCloud(image);
+
     const techArray = techString.split(" ");
 
     const formData = {
       ...formFields,
+      imageData: imageData,
       tech: techArray,
-      frontend: JSON.stringify(frontendArray),
-      backend: JSON.stringify(backendArray),
+      frontend: frontendArray,
+      backend: backendArray,
     };
 
-    const body = new FormData();
-    Object.keys(formData).map((key) => {
-      body.append(key, formData[key]);
-    });
     const response = await fetch("/api/project/create-project", {
       method: "POST",
-      body: body,
+      body: JSON.stringify(formData),
     });
     const data = await response.json();
     if (data.ok) {

@@ -2,8 +2,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { cloudName } from "../../lib/cloudinary/cloudinary";
 import MyText from "../utils/my-text/my-text.component";
-import Spacer from "../utils/spacer/spacer.component";
 import { glassmorphism } from "../utils/glassmorphism/glassmorphism.styles";
 import { colors } from "../utils/colors/colors.styles";
 import {
@@ -11,10 +11,9 @@ import {
   ProjectDetialsPageCardImageWrapper,
   ProjectDetialsPageCardImageContainer,
   ProjectDetialsPageCardContent,
-  TiltContainer,
 } from "./project-detials-page-card.styles";
 
-const ProjectDetialsPageCard = ({ item, index, imageName }) => {
+const ProjectDetialsPageCard = ({ item, index }) => {
   const [isMediumWidth, setIsMediumWidth] = useState(false);
   const isOdd = index % 2;
   const background = true ? glassmorphism.secondary : glassmorphism.primary;
@@ -41,26 +40,6 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
     }
   };
 
-  //   useEffect(() => {
-  //     if (!cardRef.current) {
-  //       return;
-  //     }
-  //     gsap.from(cardRef.current, {
-  //       scrollTrigger: cardRef.current,
-  //       duration: 1,
-  //       opacity: 0,
-  //       transform: `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`,
-  //     });
-  //     gsap.to(cardRef.current, {
-  //       scrollTrigger: cardRef.current,
-  //       duration: 1,
-  //       opacity: 1,
-  //       transform: `perspective(1000px) rotateX(0deg) rotateY(${getyDirection(
-  //         isOdd
-  //       )}4.5deg)  scale3d(1, 1, 1)`,
-  //     });
-  //   }, []);
-
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
@@ -71,8 +50,6 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
   }, []);
 
   return (
-    // {    <TiltContainer className="Tilt" options={{ max: 25 }}>
-    //       <div className="Tilt-inner">}
     <ProjectDetialsPageCardContainer
       xDirection={getXDirection(isOdd)}
       yDirection={getyDirection(isOdd)}
@@ -83,7 +60,7 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
         <ProjectDetialsPageCardImageWrapper>
           <ProjectDetialsPageCardImageContainer>
             <Image
-              src={`/api/images/page/${item._id}`}
+              src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${item.image}.png`}
               alt={`project-img`}
               layout="fill"
               objectFit="cover"
@@ -105,7 +82,7 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
         <ProjectDetialsPageCardImageWrapper>
           <ProjectDetialsPageCardImageContainer>
             <Image
-              src={`/api/images/page/${item._id}`}
+              src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${item.image}.png`}
               alt={`project-img`}
               layout="fill"
               objectFit="cover"
@@ -114,8 +91,6 @@ const ProjectDetialsPageCard = ({ item, index, imageName }) => {
         </ProjectDetialsPageCardImageWrapper>
       ) : null}
     </ProjectDetialsPageCardContainer>
-    // {      </div>
-    //     </TiltContainer>}
   );
 };
 

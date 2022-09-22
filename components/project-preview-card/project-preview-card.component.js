@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { cloudName } from "../../lib/cloudinary/cloudinary";
 import MyText from "../utils/my-text/my-text.component";
 import Spacer from "../utils/spacer/spacer.component";
 import { colors } from "../utils/colors/colors.styles";
@@ -17,7 +18,6 @@ import {
 
 const ProjectPreviewCard = ({ project, index }) => {
   const router = useRouter();
-  // const imageName = project.name.toLowerCase();
   const [isMediumWidth, setIsMediumWidth] = useState(false);
   const isOdd = index % 2;
   const windowWidthRef = useRef();
@@ -91,7 +91,7 @@ const ProjectPreviewCard = ({ project, index }) => {
             <ProjectPreviewCardImageWrapper>
               <ProjectPreviewCardImageContainer>
                 <Image
-                  src={`/api/images/${project.name}`}
+                  src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${project.image}.png`}
                   alt={`project-img`}
                   layout="fill"
                   objectFit="cover"
@@ -125,7 +125,7 @@ const ProjectPreviewCard = ({ project, index }) => {
             <ProjectPreviewCardImageWrapper>
               <ProjectPreviewCardImageContainer>
                 <Image
-                  src={`/api/images/${project.name}`}
+                  src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${project.image}.png`}
                   alt={`project-img`}
                   layout="fill"
                   objectFit="cover"

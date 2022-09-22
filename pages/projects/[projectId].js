@@ -65,21 +65,3 @@ export const getStaticPaths = () => {
     fallback: "blocking",
   };
 };
-
-// export const getServerSideProps = async (context) => {
-//   const { params } = context;
-//   const projectId = params.projectId;
-
-//   const projectData = await getProjectDetials(projectId);
-
-//   if (!projectData) {
-//     return { notFound: true };
-//   }
-
-//   return {
-//     props: {
-//       project: projectData,
-//       projectId: projectId,
-//     },
-//   };
-// };

@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import { cloudName } from "../../lib/cloudinary/cloudinary";
 import MyText from "../utils/my-text/my-text.component";
 import Spacer from "../utils/spacer/spacer.component";
 import { colors } from "../utils/colors/colors.styles";
@@ -46,7 +46,7 @@ const ProjectDetialsCard = ({ projectData }) => {
           <ProjectDetialsCardMainHeaderImageWrapper>
             <ProjectDetialsCardMainHeaderImage>
               <Image
-                src={`/api/images/${projectData.name}`}
+                src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${projectData.image}.png`}
                 alt={`project-img`}
                 layout="fill"
                 objectFit="cover"

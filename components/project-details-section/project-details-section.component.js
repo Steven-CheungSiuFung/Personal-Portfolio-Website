@@ -16,36 +16,16 @@ import { colors } from "../utils/colors/colors.styles";
 const ProjectDetialsSection = ({ projectData, projectId }) => {
   const { data, status } = useSession();
   const authenticated = status === "authenticated";
-  const imageName = projectData.name.toLowerCase();
   return (
     <Fragment>
       <ProjectDetialsSectionContainer>
-        {/*
-        <MyText size={"2rem"} weight={"500"}>
-          Project Detials
-        </MyText>
-        <Spacer position={"top"} size={"4rem"}></Spacer>    
-    */}
-
         <ProjectDetialsCard projectData={projectData} />
       </ProjectDetialsSectionContainer>
       <ProjectDetialsPagesSectionContainer>
         <ProjectDetialsCardPages>
-          {/*
-          <MyText size={"2rem"} weight={"500"}>
-            Pages
-          </MyText>
-          <Spacer position={"top"} size={"0rem"}></Spacer>      
-      */}
-
           {projectData.features &&
             projectData.features.map((item, index) => (
-              <ProjectDetialsPageCard
-                key={index}
-                index={index}
-                imageName={imageName}
-                item={item}
-              />
+              <ProjectDetialsPageCard key={index} index={index} item={item} />
             ))}
         </ProjectDetialsCardPages>
         {authenticated && (

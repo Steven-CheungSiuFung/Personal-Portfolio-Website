@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  api: {
-    responseLimit: "8mb",
+  images: {
+    domains: ["res.cloudinary.com"],
   },
   reactStrictMode: false,
   compiler: {

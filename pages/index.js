@@ -46,5 +46,4 @@ export const getStaticProps = async () => {
   } catch (error) {
     console.log(error);
   }
-  // const selectedProjects = projectData.filter((project) => project.selected);
 };

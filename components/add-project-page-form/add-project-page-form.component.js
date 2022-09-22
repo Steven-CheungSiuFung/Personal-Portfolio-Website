@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import FormInput from "../form-input/form-input.component";
+import { uploadImageToCloud } from "../../lib/cloudinary/cloudinary";
 
+import FormInput from "../form-input/form-input.component";
 import MyText from "../utils/my-text/my-text.component";
 import MyButton from "../my-button/my-button.component";
 import Spacer from "../utils/spacer/spacer.component";
@@ -23,7 +24,6 @@ import {
 const defaultFormFields = {
   page: "",
   content: "",
-  image: {},
   projectId: "",
 };
 
@@ -42,6 +42,7 @@ const AddProjectPageForm = ({ projectId }) => {
   const [imagePreview, setImagePreview] = useState(
     "/images/personal-portfolio-website.png"
   );
+  const [image, setImage] = useState(null);
 
   const { page } = formFields;
 
@@ -86,25 +87,24 @@ const AddProjectPageForm = ({ projectId }) => {
   // upload image, set into image preview and formfields
   const uploadImageHandler = (event) => {
     setImagePreview(URL.createObjectURL(event.target.files[0]));
-    setFormFields({ ...formFields, image: event.target.files[0] });
+    setImage(event.target.files[0]);
   };
 
   // submit form
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
+    const imageData = await uploadImageToCloud(image);
+
     const formData = {
       ...formFields,
-      content: JSON.stringify(contentArray),
+      imageData: imageData,
+      content: contentArray,
     };
 
-    const body = new FormData();
-    Object.keys(formData).map((key) => {
-      body.append(key, formData[key]);
-    });
     const response = await fetch("/api/project/add-details-page", {
       method: "POST",
-      body: body,
+      body: JSON.stringify(formData),
     });
     const data = await response.json();
     if (data.ok) {
