@@ -51,6 +51,7 @@ export const getStaticProps = async (context) => {
       project: projectData,
       projectId: projectId,
     },
+    revalidate: 60 * 60 * 24 * 3,
   };
 };
 

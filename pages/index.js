@@ -42,6 +42,7 @@ export const getStaticProps = async () => {
         projectData: projectsData,
         skillsData: skillsData,
       },
+      revalidate: 60 * 60 * 24 * 3,
     };
   } catch (error) {
     console.log(error);
