@@ -13,6 +13,7 @@ import {
   ProjectPreviewCardImageContainer,
   ProjectPreviewCardContent,
   ContentTechWrapper,
+  TechAndDetailContainer,
   TiltContainer,
 } from "./project-preview-card.styles";
 
@@ -106,20 +107,30 @@ const ProjectPreviewCard = ({ project, index }) => {
             <MyText size={"1rem"} weight={"400"} color={colors.para}>
               {project.description}
             </MyText>
-            <ContentTechWrapper>
-              {project.tech.map((tech, index) => (
-                <Spacer key={index} position={"right"} size={"1rem"}>
-                  <MyText
-                    size={"0.8rem"}
-                    weight={"400"}
-                    color={colors.subTitle}
-                    opacity={0.8}
-                  >
-                    {tech}
-                  </MyText>
-                </Spacer>
-              ))}
-            </ContentTechWrapper>
+            <TechAndDetailContainer>
+              <ContentTechWrapper>
+                {project.tech.map((tech, index) => (
+                  <Spacer key={index} position={"right"} size={"1rem"}>
+                    <MyText
+                      size={"0.8rem"}
+                      weight={"400"}
+                      color={colors.subTitle}
+                      opacity={0.8}
+                    >
+                      {tech}
+                    </MyText>
+                  </Spacer>
+                ))}
+              </ContentTechWrapper>
+              <MyText
+                size={"0.8rem"}
+                weight={"400"}
+                color={colors.tech}
+                opacity={0.8}
+              >
+                show more details
+              </MyText>
+            </TechAndDetailContainer>
           </ProjectPreviewCardContent>
           {isOdd && !isMediumWidth ? (
             <ProjectPreviewCardImageWrapper>

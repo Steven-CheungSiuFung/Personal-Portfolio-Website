@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Tilt from "react-tilt";
+import MyText from "../utils/my-text/my-text.component";
 
 const imageHeight = 270;
 const imageWidth = 420;
@@ -68,6 +69,11 @@ export const ProjectPreviewCardContent = styled.div`
       text-align: center;
     }
   }
+`;
+
+export const TechAndDetailContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const ContentTechWrapper = styled.div`

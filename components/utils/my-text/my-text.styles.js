@@ -8,4 +8,7 @@ export const CustomText = styled.p`
   font-weight: ${(props) => props.weight};
   color: ${(props) => props.color};
   opacity: ${(props) => props.opacity};
+  &:hover {
+    opacity: 1;
+  }
 `;
