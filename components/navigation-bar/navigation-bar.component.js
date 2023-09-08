@@ -61,7 +61,7 @@ const NavigationBar = () => {
   return (
     <NavigationBarContainer>
       <HomeLogoContainer>
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <Image
             src={"/images/steven.png"}
             alt={"logo"}
