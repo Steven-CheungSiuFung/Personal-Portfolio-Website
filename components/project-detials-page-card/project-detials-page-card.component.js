@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -62,9 +62,11 @@ const ProjectDetialsPageCard = ({ item, index }) => {
             <Image
               src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${item.image}.png`}
               alt={`project-img`}
-              layout="fill"
-              objectFit="cover"
-            />
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "cover"
+              }} />
           </ProjectDetialsPageCardImageContainer>
         </ProjectDetialsPageCardImageWrapper>
       )}
@@ -84,9 +86,11 @@ const ProjectDetialsPageCard = ({ item, index }) => {
             <Image
               src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${item.image}.png`}
               alt={`project-img`}
-              layout="fill"
-              objectFit="cover"
-            />
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "cover"
+              }} />
           </ProjectDetialsPageCardImageContainer>
         </ProjectDetialsPageCardImageWrapper>
       ) : null}

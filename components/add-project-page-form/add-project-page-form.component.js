@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { uploadImageToCloud } from "../../lib/cloudinary/cloudinary";
 
 import FormInput from "../form-input/form-input.component";
@@ -149,9 +149,11 @@ const AddProjectPageForm = ({ projectId }) => {
           <Image
             src={imagePreview}
             alt={`project-img`}
-            layout="fill"
-            objectFit="cover"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </ProjectImageWrapeer>
       </ProjectTitleImageContainer>
 

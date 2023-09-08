@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import MyText from "../utils/my-text/my-text.component";
 import {
@@ -47,9 +47,11 @@ const SkillCard = ({ item }) => {
             <Image
               src={`/images/${skillImageName}.png`}
               alt={`${item.title}-logo`}
-              layout="fill"
-              objectFit="contain"
-            />
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "contain"
+              }} />
           </SkillCardImageContainer>
 
           <Spacer position={"top"} size={"2rem"} />

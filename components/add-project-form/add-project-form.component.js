@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { uploadImageToCloud } from "../../lib/cloudinary/cloudinary";
 
@@ -192,9 +192,11 @@ const AddProjectForm = () => {
           <Image
             src={imagePreview}
             alt={`project-img`}
-            layout="fill"
-            objectFit="cover"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </ProjectImageWrapeer>
       </ProjectTitleImageContainer>
 

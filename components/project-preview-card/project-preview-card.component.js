@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
@@ -94,9 +94,11 @@ const ProjectPreviewCard = ({ project, index }) => {
                 <Image
                   src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${project.image}.png`}
                   alt={`project-img`}
-                  layout="fill"
-                  objectFit="cover"
-                />
+                  fill
+                  sizes="100vw"
+                  style={{
+                    objectFit: "cover"
+                  }} />
               </ProjectPreviewCardImageContainer>
             </ProjectPreviewCardImageWrapper>
           )}
@@ -138,9 +140,11 @@ const ProjectPreviewCard = ({ project, index }) => {
                 <Image
                   src={`https://res.cloudinary.com/${cloudName}/image/upload/w_840,h_540,q_100/${project.image}.png`}
                   alt={`project-img`}
-                  layout="fill"
-                  objectFit="cover"
-                />
+                  fill
+                  sizes="100vw"
+                  style={{
+                    objectFit: "cover"
+                  }} />
               </ProjectPreviewCardImageContainer>
             </ProjectPreviewCardImageWrapper>
           ) : null}

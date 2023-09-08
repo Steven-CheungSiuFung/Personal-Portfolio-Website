@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { TiThMenu } from "react-icons/ti";
 import MyText from "../utils/my-text/my-text.component";
 
@@ -67,7 +67,10 @@ const NavigationBar = () => {
             alt={"logo"}
             width={80}
             height={80}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </Link>
       </HomeLogoContainer>
       {!isSmallScreen ? (
