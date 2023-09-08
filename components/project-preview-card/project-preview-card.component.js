@@ -75,7 +75,7 @@ const ProjectPreviewCard = ({ project, index }) => {
 
   const onClickHandler = (event) => {
     event.preventDefault();
-    const pathName = `/projects/${project._id}`;
+    const pathName = `/projects/${project.id}`;
     router.push(pathName);
   };
 
@@ -97,8 +97,9 @@ const ProjectPreviewCard = ({ project, index }) => {
                   fill
                   sizes="100vw"
                   style={{
-                    objectFit: "cover"
-                  }} />
+                    objectFit: "cover",
+                  }}
+                />
               </ProjectPreviewCardImageContainer>
             </ProjectPreviewCardImageWrapper>
           )}
@@ -111,7 +112,7 @@ const ProjectPreviewCard = ({ project, index }) => {
             </MyText>
             <TechAndDetailContainer>
               <ContentTechWrapper>
-                {project.tech.map((tech, index) => (
+                {JSON.parse(project.tech).map((tech, index) => (
                   <Spacer key={index} position={"right"} size={"1rem"}>
                     <MyText
                       size={"0.8rem"}
@@ -143,8 +144,9 @@ const ProjectPreviewCard = ({ project, index }) => {
                   fill
                   sizes="100vw"
                   style={{
-                    objectFit: "cover"
-                  }} />
+                    objectFit: "cover",
+                  }}
+                />
               </ProjectPreviewCardImageContainer>
             </ProjectPreviewCardImageWrapper>
           ) : null}
