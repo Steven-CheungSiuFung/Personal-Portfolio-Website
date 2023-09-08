@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import MyText from "../utils/my-text/my-text.component";
 import {
