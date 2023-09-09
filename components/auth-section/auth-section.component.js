@@ -44,7 +44,10 @@ const AuthSection = () => {
           "Content-Type": "application/json",
         },
       });
-      const data = await response.json();
+      const result = await response.json();
+      if (result.ok) {
+        router.push("/user/login");
+      }
     } else {
       try {
         const result = await signIn("credentials", {
