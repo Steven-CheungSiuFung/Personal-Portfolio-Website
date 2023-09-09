@@ -3,15 +3,19 @@ import { authOptions } from "../../api/auth/[...nextauth]";
 import { addProjectPage } from "../../../lib/db-utils/db-project";
 
 const handler = async (req, res) => {
-  const session = await unstable_getServerSession(req, res, authOptions);
-  if (!session) {
-    res.status(401).json({ message: "You are not authenticated" });
-    return;
-  }
+  try {
+    const session = await unstable_getServerSession(req, res, authOptions);
+    if (!session) {
+      return res.status(401).json({ message: "You are not authenticated" });
+    }
 
-  const fields = JSON.parse(req.body);
-  await addProjectPage(fields);
-  res.status(201).json({ ok: true });
+    const fields = JSON.parse(req.body);
+    await addProjectPage(fields);
+    return res.status(201).json({ ok: true });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Fail to add page" });
+  }
 };
 
 export default handler;

@@ -1,5 +1,11 @@
--- getProjectsPreview
+-- get projects preview if setlected (getProjectsPreview)
 SELECT id, name, description, image, tech FROM project_main WHERE selected=true;
 
--- getAllProjectsPreview
+-- get all projects preview (getAllProjectsPreview)
 SELECT id, name, description, image, tech FROM project_main;
+
+-- get project main by project id (getProjectDetials)
+SELECT id, name, description, image, tech, url, frontend, backend FROM project_main WHERE id=${projectId};
+
+-- get project pages by project id (getProjectDetials)
+SELECT id, projectId, page, image, content FROM project_detail WHERE projectId=${projectId};
