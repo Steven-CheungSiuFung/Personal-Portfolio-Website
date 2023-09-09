@@ -19,7 +19,7 @@ const ProjectsPreviewList = ({ projectData }) => {
   return (
     <ProjectsPreviewListContainer>
       {projectData.map((project, index) => (
-        <Spacer key={index} position={"bottom"} size={"3rem"}>
+        <Spacer key={project.id} position={"bottom"} size={"3rem"}>
           <Spacer position={marginDirection(index)} size={"auto"}>
             <ProjectsPreviewListItem>
               <ProjectPreviewCard project={project} index={index} />

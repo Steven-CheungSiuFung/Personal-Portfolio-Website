@@ -112,7 +112,7 @@ const ProjectPreviewCard = ({ project, index }) => {
             </MyText>
             <TechAndDetailContainer>
               <ContentTechWrapper>
-                {JSON.parse(project.tech).map((tech, index) => (
+                {project.tech.map((tech, index) => (
                   <Spacer key={index} position={"right"} size={"1rem"}>
                     <MyText
                       size={"0.8rem"}
