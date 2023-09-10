@@ -9,17 +9,17 @@ CREATE TABLE project_main (
     backend VARCHAR(500),
     url VARCHAR(255),
     selected BOOLEAN,
-    createdAt TIMESTAMP DEFAULT(NOW()),
-    updatedAt TIMESTAMP DEFAULT(NOW())
+    created_at TIMESTAMP DEFAULT(NOW()),
+    updated_at TIMESTAMP DEFAULT(NOW())
 );
 
 -- create project_detail table
 CREATE TABLE project_detail (
     id VARCHAR(50) PRIMARY KEY,
-    projectId VARCHAR(50) REFERENCES project_main(id),
-    page VARCHAR(255) NOT NULL UNIQUE,
+    project_id VARCHAR(50) REFERENCES project_main(id),
+    page VARCHAR(255) NOT NULL,
     image VARCHAR(50),
     content VARCHAR(500),
-    createdAt TIMESTAMP DEFAULT(NOW()),
-    updatedAt TIMESTAMP DEFAULT(NOW())
+    created_at TIMESTAMP DEFAULT(NOW()),
+    updated_at TIMESTAMP DEFAULT(NOW())
 )
