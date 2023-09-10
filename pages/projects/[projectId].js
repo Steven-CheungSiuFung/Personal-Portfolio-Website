@@ -57,7 +57,11 @@ export const getStaticProps = async (context) => {
 
 export const getStaticPaths = () => {
   return {
-    paths: [{ params: { projectId: "4381decf-ec21-458b-bb4a-c08017c9cff9" } }],
+    paths: [
+      { params: { projectId: "2d803aef-fa07-41fd-9eaf-0c1a2b954316" } },
+      { params: { projectId: "cc5982de-b41f-4a67-8ae7-7af59a85b6ab" } },
+      { params: { projectId: "d26b755c-af96-4e35-89d7-bcef56c7ab53" } },
+    ],
     fallback: "blocking",
   };
 };
