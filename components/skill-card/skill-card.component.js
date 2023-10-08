@@ -50,8 +50,9 @@ const SkillCard = ({ item }) => {
               fill
               sizes="100vw"
               style={{
-                objectFit: "contain"
-              }} />
+                objectFit: "contain",
+              }}
+            />
           </SkillCardImageContainer>
 
           <Spacer position={"top"} size={"2rem"} />
