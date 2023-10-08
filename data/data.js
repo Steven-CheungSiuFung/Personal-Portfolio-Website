@@ -6,9 +6,9 @@ export const skillsData = [
   { title: "next.js", description: "Full-stack Framework" },
   { title: "node.js", description: "Back-end Runtime" },
   { title: "express.js", description: "Server Framework" },
-  { title: "java", description: "java 8" },
+  { title: "java", description: "Java 8" },
   { title: "spring", description: "Spring Boot" },
   { title: "mongoDB", description: "NoSQL Database" },
   { title: "postgreSQL", description: "SQL Database" },
-  { title: "docker", description: "container" },
+  { title: "docker", description: "Container" },
 ];
